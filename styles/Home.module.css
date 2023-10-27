@@ -1,10 +1,31 @@
 .container {
   width: 100%;
   max-width: 1440px;
-  padding: 0 1rem;
+  padding: 0 4rem;
   margin: 0 auto;
 }
+/* Home.module.css */
 
+.logo {
+  font-size: large;
+  font-weight: 500;
+  color: #c735b0;
+  opacity: 70%;
+}
+.navbar {
+  display: flex;
+  margin: 20px 4rem;
+  justify-content: space-between;
+  align-items: center;
+  border: #c735b0 solid;
+  border-radius: 10px;
+  padding: 0 8px;
+}
+
+.nav-item {
+  margin: 0 10px;
+  display: inline;
+}
 .gradientText0 {
   background: -webkit-linear-gradient(#bfa3da, #84309c, #c735b0);
   -webkit-background-clip: text;
