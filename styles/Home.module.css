@@ -1,8 +1,35 @@
 .container {
   width: 100%;
   max-width: 1440px;
-  padding: 0 4rem;
+  padding: 0 0;
   margin: 0 auto;
+  background: slategrey;
+  width: 70%;
+  position: relative;
+  display: flex;
+  top: 10rem;
+  border-radius: 30px;
+}
+
+.heroSection {
+  display: flex;
+  padding: 3rem;
+  align-items: center;
+}
+.writeUp {
+  line-height: 1.5;
+  font-size: large;
+  padding-left: 2rem;
+}
+.imgCard {
+  object-fit: cover;
+  width: 500px;
+  height: 500px;
+  border-radius: 30px;
+}
+.headerCard {
+  margin: 0;
+  font-size: xxx-large;
 }
 /* Home.module.css */
 
