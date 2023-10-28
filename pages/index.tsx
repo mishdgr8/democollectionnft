@@ -34,11 +34,21 @@ const Home: NextPage = () => {
   const maxClaimable = parseInt(activeClaimPhase?.maxClaimablePerWallet || "0");
 
   const [claimQuantity, setClaimQuantity] = useState(1);
+  const increment = () => {
+    if (claimQuantity > 1) {
+      setClaimQuantity(claimQuantity + 1);
+    }
+  };
+  const decrement = () => {
+    if (claimQuantity < 1) {
+      setClaimQuantity(claimQuantity - 1);
+    }
+  };
 
   const { data: claimIneligibility, isLoading: isClaimIneleiigibilityLoading } =
     useClaimIneligibilityReasons(contract, {
       walletAddress: address || "",
-      quantity: 1,
+      quantity: claimQuantity,
     });
 
   return (
@@ -86,17 +96,29 @@ const Home: NextPage = () => {
                       </p>
                       <div className={styles.claimContainer}>
                         <div className={styles.claimValue}>
-                          <button className={styles.claimBtn}>-</button>
+                          <button
+                            className={styles.claimBtn}
+                            onClick={decrement}
+                          >
+                            -
+                          </button>
                           <input
                             className={styles.claimInput}
                             type="number"
-                            value={1}
+                            value={claimQuantity}
                           />
-                          <button className={styles.claimBtn}>+</button>
+                          <button
+                            onClick={increment}
+                            className={styles.claimBtn}
+                          >
+                            +
+                          </button>
                         </div>
                         <Web3Button
                           contractAddress={CONTRACT_ADDRESS}
-                          action={(contract) => contract.erc721.claim(1)}
+                          action={(contract) =>
+                            contract.erc721.claim(claimQuantity)
+                          }
                         >
                           Claim Nft
                         </Web3Button>
