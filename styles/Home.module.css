@@ -10,6 +10,9 @@
   top: 10rem;
   border-radius: 30px;
 }
+.profile {
+  padding-left: 4rem;
+}
 
 .heroSection {
   display: flex;

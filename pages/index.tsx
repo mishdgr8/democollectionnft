@@ -35,12 +35,14 @@ const Home: NextPage = () => {
 
   const [claimQuantity, setClaimQuantity] = useState(1);
   const increment = () => {
-    if (claimQuantity > 1) {
+    if (claimQuantity < maxClaimable) {
+      // Change to maxClaimable
       setClaimQuantity(claimQuantity + 1);
     }
   };
+
   const decrement = () => {
-    if (claimQuantity < 1) {
+    if (claimQuantity > 1) {
       setClaimQuantity(claimQuantity - 1);
     }
   };
@@ -86,8 +88,10 @@ const Home: NextPage = () => {
 
               {address ? (
                 !isClaimIneleiigibilityLoading ? (
-                  claimIneligibility?.length > 0 ? (
-                    claimIneligibility?.map((reason) => <p>{reason}</p>)
+                  claimIneligibility?.length! > 0 ? (
+                    claimIneligibility?.map((reason, index) => (
+                      <p key={index}>{reason}</p>
+                    ))
                   ) : (
                     <div>
                       <p>
