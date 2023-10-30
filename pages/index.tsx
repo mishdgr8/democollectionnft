@@ -101,19 +101,19 @@ const Home: NextPage = () => {
                       <div className={styles.claimContainer}>
                         <div className={styles.claimValue}>
                           <button
-                            className={styles.claimBtn}
+                            className={`${styles.claimBtn} ${styles.btn}`}
                             onClick={decrement}
                           >
                             -
                           </button>
                           <input
-                            className={styles.claimInput}
+                            className={`${styles.claimInput} ${styles.input}`}
                             type="number"
                             value={claimQuantity}
                           />
                           <button
                             onClick={increment}
-                            className={styles.claimBtn}
+                            className={`${styles.claimBtn} ${styles.btn}`}
                           >
                             +
                           </button>
